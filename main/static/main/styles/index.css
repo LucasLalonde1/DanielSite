@@ -116,6 +116,11 @@ nav ul li a:hover {
     color: white;
 }
 
+#textBlue {
+    color: rgb(27, 27, 77);
+    /* If on mobile, dont turn the text white */
+}
+
 .social-media-links {
     display: flex;
     flex-direction: column;
