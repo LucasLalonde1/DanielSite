@@ -18,7 +18,7 @@
             <ul>
                 <li><a href="#work" id="work-button" class="scroll-animation">Work</a></li>
                 <li><a href="{% url 'main:portfolio' %}">Portfolio</a></li>
-                <li><a href="ArtistResume.pdf" download="ArtistResume.pdf">Resume</a></li>
+                <li><a href="{% static 'main/ArtistResume.pdf' %" download="ArtistResume.pdf">Resume</a></li>
             </ul>
         </nav>
     </header>
@@ -77,19 +77,22 @@
                     <p>"Daniel guided us through the recording process comfortably and competently. He delivered demos
                         that exceeded expectations and was a true professional throughout."</p>
                     <cite>— Hailey Pothier (Singer Songwriter)</cite>
+                    <br>
                 </div>
                 <div class="testimonial">
                     <p>"Daniel Deganis perfectly captured the essence of a song I had pictured for years and gave it a
                         new life I didn't know it needed."</p>
                     <cite>— Seamus Dempster (Singer Songwriter)</cite>
+                    <br>
                 </div>
                 <div class="testimonial">
                     <p>"Working with Daniel has been an absolute pleasure. His thoughtful and attentive approach to
                         understanding and fulfilling the artist’s vision makes him very easy to work with."</p>
                     <cite>— Christos Pelavas (of the band “Fencing”)</cite>
+                    <br>
                 </div>
             </div>
-            <a href="#header" class="scroll-animation">Back to top</a>
+            <a href="#header" id="toTopButton" class="scroll-animation">Back to top</a>
         </section>
 
     </main>

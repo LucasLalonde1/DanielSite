@@ -19,7 +19,8 @@
             <ul>
                 <li><a href="{% url 'main:index' %}" id="work-button" class="scroll-animation">Index</a></li>
                 <li><a href="{% url 'main:portfolio' %}">Portfolio</a></li>
-                <li><a href="ArtistResume.pdf" download="ArtistResume.pdf" target="_blank">Resume</a></li>
+                <li><a href="{% static 'main/ArtistResume.pdf' %" download="ArtistResume.pdf" target="_blank">Resume</a>
+                </li>
             </ul>
         </nav>
     </header>
@@ -27,7 +28,7 @@
 
     <main>
         <div class="container" id="1">
-            <h1>Help Mix<br><br></h1>
+            <h1>Help Mix <br><br></h1>
             <p>
                 Some information about the song<br>
                 some<br>
@@ -54,7 +55,7 @@
 
         </div>
         <div class="container" id="2">
-            <h1>Fringe Light<br><br></h1>
+            <h1>Fringe Light <br><br></h1>
             <p>
                 Some information about the song
             </p>
@@ -73,7 +74,7 @@
             </div>
         </div>
         <div class="container" id="3">
-            <h1>Sun<br><br></h1>
+            <h1>Sun <br><br></h1>
             <p>
                 Some information about the song
             </p>
