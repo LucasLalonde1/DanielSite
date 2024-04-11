@@ -233,6 +233,40 @@ nav ul li a:hover {
 }
 
 
+.testimonials {
+    background-color: #f9f9f9;
+    /* Light grey background */
+    padding: 20px 0;
+    text-align: center;
+}
+
+.testimonials h2 {
+    color: #333;
+    /* Dark grey color for headings */
+    margin-bottom: 20px;
+}
+
+.testimonial {
+    margin-bottom: 20px;
+    padding: 0 15px;
+}
+
+.testimonial p {
+    font-style: italic;
+    color: #666;
+    /* Medium grey text */
+    line-height: 1.6;
+}
+
+.testimonial cite {
+    display: block;
+    margin-top: 10px;
+    font-style: normal;
+    font-weight: bold;
+    color: #333;
+}
+
+
 
 /* Mobile specific styles */
 @media (max-width: 768px) {
