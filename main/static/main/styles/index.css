@@ -186,15 +186,15 @@ nav ul li a:hover {
 
 @keyframes rotating-border {
     0% {
-        border-color: red;
+        border-color: blue;
     }
 
     50% {
-        border-color: pink;
+        border-color: rgb(192, 204, 255);
     }
 
     100% {
-        border-color: red;
+        border-color: blue;
     }
 }
 
