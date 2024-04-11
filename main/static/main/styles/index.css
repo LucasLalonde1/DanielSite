@@ -245,6 +245,7 @@ nav ul li a:hover {
     }
 
     #meImage {
+        height: 100%;
         position: absolute;
         /* or 'relative' based on your layout needs */
         width: 65%;
