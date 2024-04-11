@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-ct-si7z-m-3a1@x%9c8a=90=!-dcpufm=x-4_39#&#x%m0^h*=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['danieldeganis.com', 'www.danieldeganis.com', '127.0.0.1', 'yourappname.herokuapp.com'] #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ALLOWED_HOSTS = ['danieldeganis.com', 'www.danieldeganis.com', '127.0.0.1', 'danielsite.herokuapp.com'] #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 # Application definition
@@ -132,26 +132,26 @@ STATIC_ROOT = '/home/dh_yk5fv5/danieldeganis.com/public/static/main/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# SECURE_BROWSER_XSS_FILTER = False
-# X_FRAME_OPTIONS = 'DENY'
-# SECURE_CONTENT_TYPE_NOSNIFF = False
-# SECURE_SSL_REDIRECT = False
-# SESSION_COOKIE_SECURE = False
-# CSRF_COOKIE_SECURE = False
+SECURE_BROWSER_XSS_FILTER = False
+X_FRAME_OPTIONS = 'DENY'
+SECURE_CONTENT_TYPE_NOSNIFF = False
+SECURE_SSL_REDIRECT = False
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
 
-# LOGGING = {
-#     'version': 1,
-#     'disable_existing_loggers': False,
-#     'handlers': {
-#         'console': {
-#             'class': 'logging.StreamHandler',
-#         },
-#     },
-#     'loggers': {
-#         'django': {
-#             'handlers': ['console'],
-#             'level': 'ERROR',
-#         },
-#     },
-# }
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'ERROR',
+        },
+    },
+}
 
