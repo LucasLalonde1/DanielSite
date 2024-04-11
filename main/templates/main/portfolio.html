@@ -19,7 +19,7 @@
             <ul>
                 <li><a href="{% url 'main:index' %}" id="work-button" class="scroll-animation">Index</a></li>
                 <li><a href="{% url 'main:portfolio' %}">Portfolio</a></li>
-                <li><a href="{% static 'main/ArtistResume.pdf' %" download="ArtistResume.pdf" target="_blank">Resume</a>
+                <li><a href="{%static 'main/ArtistResume.pdf' %}" download="ArtistResume.pdf" target="_blank">Resume</a>
                 </li>
             </ul>
         </nav>
@@ -116,57 +116,60 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        // Select all audio players
         var players = document.querySelectorAll('.custom-audio-player');
 
         players.forEach(function (player, index) {
-            var audio = player.querySelector('audio'); // Changed to class
-            var playPauseBtn = player.querySelector('.play-pause-btn'); // Changed to class
-            var muteBtn = player.querySelector('.mute-btn'); // Changed to class
-            var currentTimeDisplay = player.querySelector('.time'); // Changed to class
-            var durationDisplay = player.querySelector('.duration'); // Changed to class
-            var seekSlider = player.querySelector('.seek-slider'); // This should now select the correct seek-slider
+            var audio = player.querySelector('audio');
+            var playPauseBtn = player.querySelector('.play-pause-btn');
+            var muteBtn = player.querySelector('.mute-btn');
+            var currentTimeDisplay = player.querySelector('.time');
+            var durationDisplay = player.querySelector('.duration');
+            var seekSlider = player.querySelector('.seek-slider');
 
-            // Ensure the seekSlider is not null before adding event listeners
-            if (seekSlider) {
-                // Load audio duration when metadata is loaded
-                audio.addEventListener('loadedmetadata', function () {
-                    durationDisplay.textContent = formatTime(audio.duration);
-                    seekSlider.max = audio.duration; // Set the max value of the slider to the audio duration
-                });
+            audio.addEventListener('loadedmetadata', function () {
+                durationDisplay.textContent = formatTime(audio.duration);
+                seekSlider.max = audio.duration;
+                seekSlider.value = 0; // Reset the slider on load
+                currentTimeDisplay.textContent = formatTime(0); // Reset current time display on load
+            });
 
-                // Play or Pause Audio
-                playPauseBtn.addEventListener('click', function () {
-                    if (audio.paused || audio.ended) {
-                        audio.play();
-                        playPauseBtn.textContent = 'Pause';
-                    } else {
-                        audio.pause();
-                        playPauseBtn.textContent = 'Play';
-                    }
-                });
+            playPauseBtn.addEventListener('click', function () {
+                if (audio.paused || audio.ended) {
+                    audio.play();
+                    playPauseBtn.textContent = 'Pause';
+                } else {
+                    audio.pause();
+                    playPauseBtn.textContent = 'Play';
+                }
+            });
 
-                // Mute or Unmute Audio
-                muteBtn.addEventListener('click', function () {
-                    audio.muted = !audio.muted;
-                    muteBtn.textContent = audio.muted ? 'Unmute' : 'Mute';
-                });
+            muteBtn.addEventListener('click', function () {
+                audio.muted = !audio.muted;
+                muteBtn.textContent = audio.muted ? 'Unmute' : 'Mute';
+            });
 
-                // Update the seek slider and current time display
-                audio.addEventListener('timeupdate', function () {
-                    seekSlider.value = audio.currentTime; // Update the slider value
+            audio.addEventListener('timeupdate', function () {
+                if (!seekSlider.dragging) {
+                    seekSlider.value = audio.currentTime;
                     currentTimeDisplay.textContent = formatTime(audio.currentTime);
-                });
+                }
+            });
 
-                // Seek the audio
-                seekSlider.addEventListener('input', function () {
-                    audio.currentTime = seekSlider.value;
-                });
-            } else {
-                console.error('Seek slider not found for player index: ', index);
-            }
+            seekSlider.addEventListener('input', function () {
+                audio.currentTime = seekSlider.value;
+                currentTimeDisplay.textContent = formatTime(audio.currentTime); // Update time on slider input
+            });
 
-            // Function to format time in minutes and seconds
+            seekSlider.addEventListener('mousedown', function () {
+                audio.pause();
+                seekSlider.dragging = true;
+            });
+
+            seekSlider.addEventListener('mouseup', function () {
+                audio.play();
+                seekSlider.dragging = false;
+            });
+
             function formatTime(seconds) {
                 var minutes = Math.floor(seconds / 60);
                 var seconds = Math.floor(seconds % 60);
