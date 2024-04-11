@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    {% load static %}
+    <link rel="stylesheet" href="{%static 'main/styles/portfolio.css'%}">
+    <!-- <script src="{%static 'main/scripts/index.js'%}"></script> -->
+</head>
+
+<body>
+
+    {% block header %}
+    <header id="header">
+        <img src="{%static 'main/images/headerlogo.png'%}" id="headerlogo">
+        <nav>
+            <ul>
+                <li><a href="{% url 'main:index' %}" id="work-button" class="scroll-animation">Index</a></li>
+                <li><a href="{% url 'main:portfolio' %}">Portfolio</a></li>
+                <li><a href="resume.pdf" download="resume.pdf" target="_blank">Resume</a></li>
+            </ul>
+        </nav>
+    </header>
+    {% endblock %}
+
+    <main>
+        <div class="container" id="1">
+            <h1>Song number 1<br><br></h1>
+            <p>
+                Some information about the song<br>
+                some<br>
+                some<br>
+                some<br>
+                some<br>
+                some<br>
+                some<br>
+                some<br>
+            </p>
+            <div class="custom-audio-player">
+                <input type="range" class="seek-slider" max="100" value="0">
+                <button id="playPauseBtn" class="play-pause-btn">Play</button>
+                <span id="currentTime" class="time">0:00</span> /
+                <span id="duration" class="duration">0:00</span>
+                <div class="track-info">
+                    <span>Music Song</span>
+                </div>
+                <div class="volume-control">
+                    <button id="muteBtn" class="mute-btn">Mute</button>
+                </div>
+                <audio id="audioPlayer" src="https://cdn.freesound.org/previews/723/723561_1147518-lq.mp3"
+                    preload="metadata"></audio>
+            </div>
+
+        </div>
+        <div class="container" id="2">
+            <h1>Song number 2<br><br></h1>
+            <p>
+                Some information about the song
+            </p>
+            <div class="custom-audio-player">
+                <input type="range" class="seek-slider" max="100" value="0">
+                <button id="playPauseBtn" class="play-pause-btn">Play</button>
+                <span id="currentTime" class="time">0:00</span> /
+                <span id="duration" class="duration">0:00</span>
+                <div class="track-info">
+                    <span>Music Song</span>
+                </div>
+                <div class="volume-control">
+                    <button id="muteBtn" class="mute-btn">Mute</button>
+                </div>
+                <audio id="audioPlayer" src="https://cdn.freesound.org/previews/723/723561_1147518-lq.mp3"
+                    preload="metadata"></audio>
+            </div>
+        </div>
+        <div class="container" id="3">
+            <h1>Song number 3<br><br></h1>
+            <p>
+                Some information about the song
+            </p>
+            <div class="custom-audio-player">
+                <input type="range" class="seek-slider" max="100" value="0">
+                <button id="playPauseBtn" class="play-pause-btn">Play</button>
+                <span id="currentTime" class="time">0:00</span> /
+                <span id="duration" class="duration">0:00</span>
+                <div class="track-info">
+                    <span>Music Song</span>
+                </div>
+                <div class="volume-control">
+                    <button id="muteBtn" class="mute-btn">Mute</button>
+                </div>
+                <audio id="audioPlayer" src="https://cdn.freesound.org/previews/723/723561_1147518-lq.mp3"
+                    preload="metadata"></audio>
+            </div>
+        </div>
+        <div class="container" id="4">
+            <h1>Song number 4<br><br></h1>
+            <p>
+                Some information about the song
+            </p>
+            <div class="custom-audio-player">
+                <input type="range" class="seek-slider" max="100" value="0">
+                <button id="playPauseBtn" class="play-pause-btn">Play</button>
+                <span id="currentTime" class="time">0:00</span> /
+                <span id="duration" class="duration">0:00</span>
+                <div class="track-info">
+                    <span>Music Song</span>
+                </div>
+                <div class="volume-control">
+                    <button id="muteBtn" class="mute-btn">Mute</button>
+                </div>
+                <audio id="audioPlayer" src="https://cdn.freesound.org/previews/723/723561_1147518-lq.mp3"
+                    preload="metadata"></audio>
+            </div>
+        </div>
+        <div class="container" id="5">
+            <h1>Song number 5<br><br></h1>
+            <p>
+                Some information about the song
+            </p>
+            <div class="custom-audio-player">
+                <input type="range" class="seek-slider" max="100" value="0">
+                <button id="playPauseBtn" class="play-pause-btn">Play</button>
+                <span id="currentTime" class="time">0:00</span> /
+                <span id="duration" class="duration">0:00</span>
+                <div class="track-info">
+                    <span>Music Song</span>
+                </div>
+                <div class="volume-control">
+                    <button id="muteBtn" class="mute-btn">Mute</button>
+                </div>
+                <audio id="audioPlayer" src="https://cdn.freesound.org/previews/723/723561_1147518-lq.mp3"
+                    preload="metadata"></audio>
+            </div>
+        </div>
+
+    </main>
+
+    {% block footer %}
+    <footer>
+        <p>&copy Daniel Deganis 2024</p>
+    </footer>
+    {% endblock footer %}
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Select all audio players
+        var players = document.querySelectorAll('.custom-audio-player');
+
+        players.forEach(function (player, index) {
+            var audio = player.querySelector('audio'); // Changed to class
+            var playPauseBtn = player.querySelector('.play-pause-btn'); // Changed to class
+            var muteBtn = player.querySelector('.mute-btn'); // Changed to class
+            var currentTimeDisplay = player.querySelector('.time'); // Changed to class
+            var durationDisplay = player.querySelector('.duration'); // Changed to class
+            var seekSlider = player.querySelector('.seek-slider'); // This should now select the correct seek-slider
+
+            // Ensure the seekSlider is not null before adding event listeners
+            if (seekSlider) {
+                // Load audio duration when metadata is loaded
+                audio.addEventListener('loadedmetadata', function () {
+                    durationDisplay.textContent = formatTime(audio.duration);
+                    seekSlider.max = audio.duration; // Set the max value of the slider to the audio duration
+                });
+
+                // Play or Pause Audio
+                playPauseBtn.addEventListener('click', function () {
+                    if (audio.paused || audio.ended) {
+                        audio.play();
+                        playPauseBtn.textContent = 'Pause';
+                    } else {
+                        audio.pause();
+                        playPauseBtn.textContent = 'Play';
+                    }
+                });
+
+                // Mute or Unmute Audio
+                muteBtn.addEventListener('click', function () {
+                    audio.muted = !audio.muted;
+                    muteBtn.textContent = audio.muted ? 'Unmute' : 'Mute';
+                });
+
+                // Update the seek slider and current time display
+                audio.addEventListener('timeupdate', function () {
+                    seekSlider.value = audio.currentTime; // Update the slider value
+                    currentTimeDisplay.textContent = formatTime(audio.currentTime);
+                });
+
+                // Seek the audio
+                seekSlider.addEventListener('input', function () {
+                    audio.currentTime = seekSlider.value;
+                });
+            } else {
+                console.error('Seek slider not found for player index: ', index);
+            }
+
+            // Function to format time in minutes and seconds
+            function formatTime(seconds) {
+                var minutes = Math.floor(seconds / 60);
+                var seconds = Math.floor(seconds % 60);
+                return minutes + ":" + (seconds < 10 ? "0" + seconds : seconds);
+            }
+        });
+    });
+
+</script>
+
+</html>

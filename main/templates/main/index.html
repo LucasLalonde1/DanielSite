@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    {% load static %}
+    <link rel="stylesheet" href="{%static 'main/styles/index.css'%}">
+    <!-- <script src="{%static 'main/scripts/index.js'%}"></script> -->
+</head>
+
+<body>
+    {% block header %}
+    <header id="header">
+        <img src="{%static 'main/images/headerlogo.png'%}" id="headerlogo">
+        <nav>
+            <ul>
+                <li><a href="#work" id="work-button" class="scroll-animation">Work</a></li>
+                <li><a href="{% url 'main:portfolio' %}">Portfolio</a></li>
+                <li><a href="resume.pdf" download="resume.pdf">Resume</a></li>
+            </ul>
+        </nav>
+    </header>
+    {% endblock %}
+    <main>
+        <section class="hero">
+            <div class="main-height-container">
+
+                <img src="{%static 'main/images/me.png'%}" id="meImage">
+
+                <div class="social-media-links">
+                    <a href="https://www.instagram.com/daniel_deganis/" target="_blank">
+                        <img src="{%static 'main/images/instagram.png'%}" alt="Instagram">
+                    </a>
+                </div>
+
+                <div class="intro">
+                    <h1>I'm <span id="textWhite">Daniel.</span><br>Im a producer.</h1>
+                    <p>I value trust, self-discipline, responsiblity. Th<span id="textWhite">ese ideals guide my
+                        </span>approach
+                        to problem-solving
+                        and lif<span id="textWhite">e in general.</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="work">
+            <div class="text-side">
+                <h2><span id="textWhite">Presenting my portfolio,</span> Showcasing my work.<br><br></h2>
+                <p>
+                    As a <span id="textWhite">Computer Science student,</span> I am actively seeking <span
+                        id="textWhite">internship opportunities</span> that will
+                    allow me to apply my growing knowledge in a <span id="textWhite">real-world setting.</span> I am
+                    eager to apply my <span id="textWhite">technological interest and abilities</span> in a practical
+                    setting. I’d love to hear from
+                    you! <br><br>
+                </p>
+
+                <a href="#header" id="toTopButton" class="scroll-animation">Back to top</a>
+            </div>
+
+            <div class="image-side">
+                <div id="computerImageContainer">
+                    <img id="computerImage" src="{%static 'main/images/workImage.png'%}">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    {% block footer %}
+    <footer>
+        <p>&copy Daniel Deganis 2024</p>
+    </footer>
+    {% endblock footer %}
+
+    <!-- Scroll animation script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Find the "Work" button element
+            var workButton = document.getElementById('work-button');
+
+            // Add a click event listener to the button
+            workButton.addEventListener('click', function (event) {
+                // Prevent the default behavior of the link
+                event.preventDefault();
+
+                // Find the first element with the "work" class
+                var workSection = document.querySelector('.work');
+
+                // Scroll to the "Work" section with smooth animation
+                workSection.scrollIntoView({ behavior: 'smooth' });
+            });
+        });        
+    </script>
+</body>
+
+</html>
